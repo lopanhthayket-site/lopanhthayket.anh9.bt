@@ -137,7 +137,7 @@
             <!-- Main Title Banner -->
             <div class="inline-block bg-white/90 backdrop-blur-md px-6 py-3 rounded-full border-4 border-yellow-400 shadow-xl mb-3 transform hover:scale-105 transition">
                 <span class="text-amber-700 font-extrabold text-sm md:text-base uppercase tracking-wider">
-                    🎓 Luyện Thi THCS - THPT High Quality
+                    🎓 Lớp Anh Thầy Kết - Luyện Thi THCS-THPT
                 </span>
             </div>
             
@@ -145,7 +145,7 @@
                 🍎 LỚP ANH THẦY KẾT 🍎
             </h1>
             <p class="text-lg md:text-2xl font-bold text-emerald-800 bg-emerald-100/80 inline-block px-6 py-1 rounded-2xl shadow-sm">
-                Ôn Tập Unit 4: REMEMBERING THE PAST (LỚP 9)
+                CHẶNG KHỞI ĐỘNG - TIẾNG ANH 9 - UNIT 4: REMEMBERING THE PAST
             </p>
         </div>
     </header>
@@ -199,7 +199,7 @@
                 </div>
                 <div>
                     <label class="block font-bold text-amber-900 mb-1">🏫 Lớp:</label>
-                    <input type="text" id="student-class" class="w-full fill-input p-2.5 text-base" placeholder="Nhập tên lớp (VD: 9A1)...">
+                    <input type="text" id="student-class" class="w-full fill-input p-2.5 text-base" placeholder="Nhập tên lớp (VD: Lớp Anh 9 Thầy Kết)...">
                 </div>
             </div>
         </div>
@@ -272,7 +272,7 @@
                         <span>2.</span> MULTIPLE CHOICE (Chọn đáp án đúng A, B, C hoặc D)
                     </h3>
                     <div id="vocab-mc-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Questions injected via script for clean HTML -->
+                        <!-- Questions injected via script -->
                     </div>
                 </div>
             </div>
@@ -447,9 +447,11 @@
         <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center border-4 border-amber-500 shadow-2xl transform transition-all scale-95">
             <div class="text-6xl mb-3 animate-bounce-soft">🍎🐮🎉</div>
             <h3 class="text-2xl font-black text-emerald-800 mb-2">HOÀN THÀNH BÀI LÀM!</h3>
-            <p class="text-gray-700 font-bold text-base leading-relaxed mb-6">
-                Chúc mừng em đã hoàn thành bài làm xuất sắc trên Nông trại táo vui vẻ! 🎉<br>
-                Hãy báo <span class="text-amber-800 font-black">Thầy Kết</span> để thầy kiểm tra và khen thưởng nhé! 🍎🐾
+            <p class="text-gray-700 font-bold text-base leading-relaxed mb-4">
+                Chúc mừng em <span id="modal-student-name" class="text-blue-900 font-black"></span> đã hoàn thành <span id="modal-score" class="text-red-600 font-black"></span> câu bài tập trên Nông trại táo vui vẻ! 🎉
+            </p>
+            <p class="text-sm text-gray-600 font-semibold mb-6 bg-amber-50 p-3 rounded-xl border border-amber-200">
+                📸 Hãy **chụp màn hình** lại kết quả này và gửi ngay cho <span class="text-amber-900 font-black">Thầy Kết</span> để thầy kiểm tra bài làm nhé! 🍎🐾
             </p>
             <button id="btn-close-modal" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-3 rounded-full text-lg shadow-lg">
                 Đồng ý (OK) 👍
@@ -459,7 +461,7 @@
 
     <!-- JAVASCRIPT DATA & INTERACTION LOGIC -->
     <script>
-        // DATA OBJECTS FOR EASY RENDERING
+        // FULL DATA OBJECTS FOR ALL EXERCISES
 
         const vocabMC = [
             { id: "v1", q: "Traditional artisans usually ____________ their technical skills to their children.", opts: ["hand over", "hand down", "give up", "take in"] },
@@ -491,7 +493,17 @@
             { id: "v27", q: "The old bridge was built entirely ____________ hand without modern machinery.", opts: ["by", "with", "in", "from"] },
             { id: "v28", q: "Participating in traditional festivals helps strengthen community ____________.", opts: ["ropes", "chains", "bonds", "wires"] },
             { id: "v29", q: "Traditional customs are passed down from generation ____________ generation.", opts: ["in", "with", "for", "to"] },
-            { id: "v30", q: "Artisans in this village are famous ____________ carving intricate wooden patterns.", opts: ["with", "about", "for", "in"] }
+            { id: "v30", q: "Artisans in this village are famous ____________ carving intricate wooden patterns.", opts: ["with", "about", "for", "in"] },
+            { id: "v31", q: "Living in an extended family allows children to receive care from both parents and ____________.", opts: ["grandparents", "classmates", "strangers", "coworkers"] },
+            { id: "v32", q: "Old historical documents provide valuable ____________ into how people lived centuries ago.", opts: ["vision", "sight", "insight", "view"] },
+            { id: "v33", q: "The preservation of historical sites is of great ____________ to our tourism industry.", opts: ["import", "importance", "importantly", "important"] },
+            { id: "v34", q: "The museum displays various ancient tools used in domestic ____________.", opts: ["chores", "tasks", "assignments", "duties"] },
+            { id: "v35", q: "Walking around the old quarter feels like stepping ____________ in time.", opts: ["forward", "back", "away", "out"] },
+            { id: "v36", q: "Many traditional practices are in danger of dying ____________ due to rapid urbanization.", opts: ["down", "out", "off", "away"] },
+            { id: "v37", q: "Young people should pay ____________ to the advice given by elderly community members.", opts: ["attention", "care", "notice", "mind"] },
+            { id: "v38", q: "The story about the heroic village leader left a lasting ____________ on the young audience.", opts: ["impressive", "impress", "impression", "impressively"] },
+            { id: "v39", q: "People in ancient times used to store food in ceramic ____________.", opts: ["cans", "jars", "boxes", "packets"] },
+            { id: "v40", q: "Maintaining traditional values is considered a vital ____________ of cultural identity.", opts: ["corner", "aspect", "margin", "border"] }
         ];
 
         const grammarMC = [
@@ -972,7 +984,7 @@
         const cheers = [
             "Tuyệt vời lắm! Thêm một quả táo tươi ngon! 🍎",
             "Cố lên em ơi, nông trại đang bội thu rồi! 🌾",
-            "Chú bò vui mừng kêu: "Moo Moo!" 🐮",
+            "Chú bò vui mừng kêu: Moo Moo! 🐮",
             "Thỏ con đang nhảy nhót cổ vũ em đó! 🐰",
             "Bài làm rất tốt, tiếp tục phát huy nhé! 🌟"
         ];
@@ -1055,6 +1067,12 @@
             const closeModalBtn = document.getElementById('btn-close-modal');
 
             submitBtn.addEventListener('click', () => {
+                const name = document.getElementById('student-name').value.trim() || "học sinh";
+                const done = document.getElementById('completed-count').textContent;
+                const total = document.getElementById('total-count').textContent;
+
+                document.getElementById('modal-student-name').textContent = name;
+                document.getElementById('modal-score').textContent = `${done}/${total}`;
                 modal.classList.remove('hidden');
             });
 
