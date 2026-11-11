@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lớp Anh Thầy Kết - Luyện thi Anh 9 Unit 4: Remembering the Past</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Nunito & Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        farmGreen: '#4d8b31',
+                        farmLightGreen: '#88d49e',
+                        farmGrass: '#e8f5e9',
+                        farmRed: '#ff4d4d',
+                        farmDarkRed: '#cc0000',
+                        farmYellow: '#ffc107',
+                        farmWood: '#8d5b4c',
+                        farmSoftWood: '#f4ece1',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'Quicksand', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 300px, #e8f5e9 600px, #c8e6c9 100%);
+            background-attachment: fixed;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /* Floating Animation */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        @keyframes pulseApple {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+        .animate-bounce-soft { animation: bounceSoft 2s ease-in-out infinite; }
+        .animate-pulse-apple { animation: pulseApple 1.5s ease-in-out infinite; }
+
+        /* Custom Input Styling */
+        .fill-input {
+            border: 2px dashed #4d8b31;
+            background-color: #ffffff;
+            transition: all 0.25s ease;
+            outline: none;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: #1e3a8a;
+            display: inline-block;
+        }
+        .fill-input:focus {
+            border: 2px solid #ff4d4d;
+            background-color: #fffde7;
+            box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+            transform: scale(1.02);
+        }
+        .fill-input.filled {
+            border-style: solid;
+            border-color: #2e7d32;
+            background-color: #f1f8e9;
+        }
+
+        /* Multiple Choice Radio styling */
+        .option-label {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option-label:hover {
+            background-color: #f0fdf4;
+            transform: translateX(4px);
+        }
+        input[type="radio"]:checked + .option-text {
+            color: #15803d;
+            font-weight: 800;
+        }
+
+        /* Card custom shadow & border */
+        .farm-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #8d5b4c;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .farm-badge {
+            background: linear-gradient(135deg, #8d5b4c 0%, #5c3a2e 100%);
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 12px 0 18px 0;
+            font-weight: 800;
+        }
+
+        /* Apple tree mini-widget styles */
+        .apple-slot {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0.2;
+            transform: scale(0.6);
+        }
+        .apple-slot.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen pb-16">
+
+    <!-- TOP HEADER DECORATION -->
+    <header class="relative bg-gradient-to-b from-sky-400 to-sky-200 pt-6 pb-12 px-4 shadow-md overflow-hidden">
+        <!-- Floating Clouds -->
+        <div class="absolute top-2 left-10 text-white opacity-80 animate-float text-4xl"><i class="fa-solid fa-cloud"></i></div>
+        <div class="absolute top-6 right-20 text-white opacity-70 animate-float text-5xl" style="animation-delay: 1.5s;"><i class="fa-solid fa-cloud"></i></div>
+        <div class="absolute top-12 left-1/3 text-white opacity-60 animate-float text-3xl" style="animation-delay: 2.5s;"><i class="fa-solid fa-cloud"></i></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Main Title Banner -->
+            <div class="inline-block bg-white/90 backdrop-blur-md px-6 py-3 rounded-full border-4 border-yellow-400 shadow-xl mb-3 transform hover:scale-105 transition">
+                <span class="text-amber-700 font-extrabold text-sm md:text-base uppercase tracking-wider">
+                    🎓 Luyện Thi THCS - THPT High Quality
+                </span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-black text-blue-900 drop-shadow-md tracking-tight mb-2">
+                🍎 LỚP ANH THẦY KẾT 🍎
+            </h1>
+            <p class="text-lg md:text-2xl font-bold text-emerald-800 bg-emerald-100/80 inline-block px-6 py-1 rounded-2xl shadow-sm">
+                Ôn Tập Unit 4: REMEMBERING THE PAST (LỚP 9)
+            </p>
+        </div>
+    </header>
+
+    <!-- FARM WIDGET STICKY BANNER & PROGRESS -->
+    <div class="sticky top-2 z-40 max-w-5xl mx-auto px-4 my-4">
+        <div class="bg-amber-100 border-4 border-amber-800 rounded-2xl p-3 md:p-4 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Farm Status -->
+            <div class="flex items-center gap-3">
+                <div class="relative w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center text-white text-3xl shadow-inner border-2 border-white">
+                    🏡
+                    <span id="animal-emote" class="absolute -top-2 -right-2 text-2xl animate-bounce-soft">🐶</span>
+                </div>
+                <div>
+                    <h3 class="font-extrabold text-amber-900 text-base md:text-lg flex items-center gap-2">
+                        NÔNG TRẠI TÁO VUI VẺ 
+                        <span class="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full animate-pulse-apple">Happy Farm</span>
+                    </h3>
+                    <p id="farm-cheer" class="text-xs md:text-sm text-emerald-800 font-bold">Hãy trả lời các câu hỏi để thu hoạch thật nhiều táo nhé! 🍎</p>
+                </div>
+            </div>
+
+            <!-- Apple Harvest Counter & Progress -->
+            <div class="flex items-center gap-4 w-full md:w-auto justify-end">
+                <!-- Apple Tree Visual -->
+                <div class="bg-emerald-600 px-3 py-1.5 rounded-xl border-2 border-green-800 flex items-center gap-1.5 shadow-sm text-lg">
+                    <span id="apple-1" class="apple-slot">🍎</span>
+                    <span id="apple-2" class="apple-slot">🍎</span>
+                    <span id="apple-3" class="apple-slot">🍎</span>
+                    <span id="apple-4" class="apple-slot">🍎</span>
+                    <span id="apple-5" class="apple-slot">🍎</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-xl border-2 border-amber-700 font-black text-amber-900 text-center shadow-inner min-w-[110px]">
+                    <div class="text-xs text-gray-500">Thu hoạch</div>
+                    <span id="completed-count" class="text-xl text-red-600">0</span> / <span id="total-count">0</span> 🍎
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-5xl mx-auto px-4 space-y-8 relative z-10">
+
+        <!-- Student Info Header Section -->
+        <div class="farm-card p-6 bg-amber-50/90">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block font-bold text-amber-900 mb-1">✍️ Họ và tên Học sinh:</label>
+                    <input type="text" id="student-name" class="w-full fill-input p-2.5 text-base" placeholder="Nhập họ và tên của em...">
+                </div>
+                <div>
+                    <label class="block font-bold text-amber-900 mb-1">🏫 Lớp:</label>
+                    <input type="text" id="student-class" class="w-full fill-input p-2.5 text-base" placeholder="Nhập tên lớp (VD: 9A1)...">
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PHẦN I: VOCABULARY ==================== -->
+        <section class="farm-card overflow-hidden">
+            <div class="farm-badge text-lg md:text-xl flex items-center gap-2">
+                <span>📚</span> PHẦN I: VOCABULARY
+            </div>
+            
+            <div class="p-6 space-y-8">
+                <!-- 1. Word Bank Fill-In -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3 flex items-center gap-2">
+                        <span>1.</span> WORD BANK FILL-IN
+                    </h3>
+
+                    <!-- Box 1 -->
+                    <div class="bg-emerald-50 border-2 border-emerald-300 rounded-xl p-4 mb-4">
+                        <p class="font-bold text-emerald-900 mb-2">Word bank 1:</p>
+                        <div class="flex flex-wrap gap-2 mb-4 font-bold text-emerald-700 bg-white p-3 rounded-lg border border-emerald-200 text-sm md:text-base">
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">traditions</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">preserved</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">craftsman</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">pottery</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">handicrafts</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">generation</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">memory</span>
+                            <span class="bg-emerald-100 px-2.5 py-1 rounded">modernized</span>
+                        </div>
+                        
+                        <ol class="list-decimal list-inside space-y-3 font-medium text-gray-800 leading-relaxed">
+                            <li>My grandfather is a skilled <input type="text" class="fill-input w-40" data-q="v-wb-1"> who has been making traditional bamboo baskets for over forty years.</li>
+                            <li>Learning about local <input type="text" class="fill-input w-40" data-q="v-wb-2"> helps young people appreciate their cultural heritage.</li>
+                            <li>The old citadel was beautifully <input type="text" class="fill-input w-40" data-q="v-wb-3"> to keep its historic appearance intact.</li>
+                            <li>Children in the village love making traditional <input type="text" class="fill-input w-40" data-q="v-wb-4"> items during their free time.</li>
+                            <li>This ancient recipe has been handed down from one <input type="text" class="fill-input w-40" data-q="v-wb-5"> to another.</li>
+                            <li>Visiting the historical museum brought back many vivid <input type="text" class="fill-input w-40" data-q="v-wb-6"> of my childhood trips with family.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Box 2 -->
+                    <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-4">
+                        <p class="font-bold text-amber-900 mb-2">Word bank 2:</p>
+                        <div class="flex flex-wrap gap-2 mb-4 font-bold text-amber-800 bg-white p-3 rounded-lg border border-amber-200 text-sm md:text-base">
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">monument</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">structure</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">physical</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">preserve</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">remind</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">extended</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">nuclear</span>
+                            <span class="bg-amber-100 px-2.5 py-1 rounded">custom</span>
+                        </div>
+                        
+                        <ol class="list-decimal list-inside space-y-3 font-medium text-gray-800 leading-relaxed">
+                            <li>In the past, several generations often lived together in an <input type="text" class="fill-input w-40" data-q="v-wb-7"> family.</li>
+                            <li>The government built an impressive <input type="text" class="fill-input w-40" data-q="v-wb-8"> to honor the soldiers who fought for national peace.</li>
+                            <li>Elderly people usually <input type="text" class="fill-input w-40" data-q="v-wb-9"> their children to show respect to senior members in the community.</li>
+                            <li>Wearing traditional costumes during New Year celebrations is a common <input type="text" class="fill-input w-40" data-q="v-wb-10"> in our province.</li>
+                            <li>Heavy outdoor work requires a lot of <input type="text" class="fill-input w-40" data-q="v-wb-11"> strength and endurance.</li>
+                            <li>We must take immediate action to <input type="text" class="fill-input w-40" data-q="v-wb-12"> our town's historical landmarks from degradation.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 2. Vocabulary Multiple Choice -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4 flex items-center gap-2">
+                        <span>2.</span> MULTIPLE CHOICE (Chọn đáp án đúng A, B, C hoặc D)
+                    </h3>
+                    <div id="vocab-mc-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Questions injected via script for clean HTML -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN II: GRAMMAR ==================== -->
+        <section class="farm-card overflow-hidden">
+            <div class="farm-badge text-lg md:text-xl flex items-center gap-2">
+                <span>📖</span> PHẦN II: GRAMMAR
+            </div>
+            
+            <div class="p-6 space-y-8">
+                <!-- 1. Grammar Multiple Choice -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4">1. TRẮC NGHIỆM NGỮ PHÁP</h3>
+                    <div id="grammar-mc-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <!-- 2. Word Formation -->
+                <div class="bg-blue-50/60 p-5 rounded-2xl border-2 border-blue-200">
+                    <h3 class="font-extrabold text-blue-900 text-lg mb-3">2. TỰ LUẬN (WORD FORMATION)</h3>
+                    <p class="text-sm font-semibold text-blue-700 mb-4">Cho dạng đúng của từ trong ngoặc để hoàn thành câu:</p>
+                    <div id="word-form-container" class="space-y-3"></div>
+                </div>
+
+                <!-- 3. Verb Tenses & Wish -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4">3. VERB TENSES & WISH</h3>
+                    
+                    <!-- A. Trắc nghiệm -->
+                    <div class="mb-6">
+                        <h4 class="font-bold text-amber-900 mb-3 bg-amber-100 inline-block px-3 py-1 rounded-lg">A. Trắc nghiệm</h4>
+                        <div id="tenses-mc-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </div>
+
+                    <!-- B. Tự luận chia động từ -->
+                    <div class="bg-emerald-50/70 p-5 rounded-2xl border-2 border-emerald-200">
+                        <h4 class="font-bold text-emerald-900 mb-3">B. Tự luận chia động từ trong ngoặc</h4>
+                        <div id="tenses-fill-container" class="space-y-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN III: READING ==================== -->
+        <section class="farm-card overflow-hidden">
+            <div class="farm-badge text-lg md:text-xl flex items-center gap-2">
+                <span>📰</span> PHẦN III: READING
+            </div>
+            
+            <div class="p-6 space-y-8">
+                <!-- 1. Cloze Texts -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4">1. CLOZE TEXTS (ĐIỀN TỪ VÀO ĐOẠN VĂN)</h3>
+                    <div id="cloze-container" class="space-y-6"></div>
+                </div>
+
+                <!-- 2. Reading Comprehension -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4">2. READING COMPREHENSION (ĐỌC HIỂU ĐOẠN VĂN)</h3>
+                    <div id="reading-comp-container" class="space-y-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN IV: SPEAKING ==================== -->
+        <section class="farm-card overflow-hidden">
+            <div class="farm-badge text-lg md:text-xl flex items-center gap-2">
+                <span>🗣️</span> PHẦN IV: SPEAKING
+            </div>
+            
+            <div class="p-6 space-y-8">
+                <!-- 1. Conversation Completion -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4">1. MULTIPLE CHOICE: CONVERSATION COMPLETION</h3>
+                    <div id="speaking-mc-container" class="space-y-4"></div>
+                </div>
+
+                <!-- 2. Conversation Arrangement -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-4">2. CONVERSATION ARRANGEMENT (SẮP XẾP HỘI THOẠI)</h3>
+                    <div id="speaking-arr-container" class="space-y-6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN V: WRITING ==================== -->
+        <section class="farm-card overflow-hidden">
+            <div class="farm-badge text-lg md:text-xl flex items-center gap-2">
+                <span>✍️</span> PHẦN V: WRITING (TỰ LUẬN)
+            </div>
+            
+            <div class="p-6 space-y-8">
+                <!-- 1. Rearrange Words -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3">1. Rearrange the words/phrases to form meaningful sentences</h3>
+                    <div id="writing-rearrange-container" class="space-y-4"></div>
+                </div>
+
+                <!-- 2. Build Sentences -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3">2. Build complete sentences using the cues given</h3>
+                    <div id="writing-build-container" class="space-y-4"></div>
+                </div>
+
+                <!-- 3. Rewrite with Wish -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3">3. Rewrite each sentence using "WISH"</h3>
+                    <div id="writing-wish-container" class="space-y-4"></div>
+                </div>
+
+                <!-- 4. Translation -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3">4. TRANSLATION (DỊCH THUẬT ANH - VIỆT & VIỆT - ANH)</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                            <h4 class="font-bold text-amber-900 mb-3">A. Translate English sentences into Vietnamese:</h4>
+                            <div id="trans-en-vi-container" class="space-y-4"></div>
+                        </div>
+
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                            <h4 class="font-bold text-emerald-900 mb-3">B. Translate Vietnamese sentences into English:</h4>
+                            <div id="trans-vi-en-container" class="space-y-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN VI: LISTENING ==================== -->
+        <section class="farm-card overflow-hidden">
+            <div class="farm-badge text-lg md:text-xl flex items-center gap-2">
+                <span>🎧</span> PHẦN VI: LISTENING
+            </div>
+            
+            <div class="p-6 space-y-8">
+                <!-- Task 1: True / False -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3">📄 TASK 1: TRUE / FALSE</h3>
+                    <p class="text-sm font-semibold text-gray-600 mb-4">Read the conversation and decide whether the following statements are True (T) or False (F).</p>
+                    <div id="listening-tf-container" class="space-y-3"></div>
+                </div>
+
+                <!-- Task 2: Multiple Choice -->
+                <div>
+                    <h3 class="font-extrabold text-emerald-800 text-lg mb-3">📄 TASK 2: MULTIPLE CHOICE</h3>
+                    <div id="listening-mc-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <!-- Task 3: Gap Filling -->
+                <div class="bg-amber-50/70 p-5 rounded-2xl border-2 border-amber-200">
+                    <h3 class="font-extrabold text-amber-900 text-lg mb-3">📄 TASK 3: GAP FILLING</h3>
+                    <p class="text-sm font-semibold text-amber-800 mb-4">Fill in each blank with NO MORE THAN TWO WORDS from the conversation.</p>
+                    <div id="listening-gap-container" class="space-y-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBMIT BUTTON SECTION -->
+        <div class="text-center py-8">
+            <button id="btn-submit" type="button" class="bg-gradient-to-r from-red-500 via-emerald-600 to-amber-500 hover:from-red-600 hover:to-amber-600 text-white font-black text-xl md:text-2xl py-4 px-12 rounded-full shadow-2xl hover:shadow-red-300 transform hover:-translate-y-1 transition-all border-4 border-white active:scale-95">
+                🍎 NỘP BÀI THI CHO THẦY KẾT 🐾
+            </button>
+            <p class="text-sm text-gray-500 font-bold mt-2">Bấm nút để hoàn thành bài và gửi thông báo tới thầy nhé!</p>
+        </div>
+
+    </main>
+
+    <!-- SUCCESS MODAL POPUP -->
+    <div id="submit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center border-4 border-amber-500 shadow-2xl transform transition-all scale-95">
+            <div class="text-6xl mb-3 animate-bounce-soft">🍎🐮🎉</div>
+            <h3 class="text-2xl font-black text-emerald-800 mb-2">HOÀN THÀNH BÀI LÀM!</h3>
+            <p class="text-gray-700 font-bold text-base leading-relaxed mb-6">
+                Chúc mừng em đã hoàn thành bài làm xuất sắc trên Nông trại táo vui vẻ! 🎉<br>
+                Hãy báo <span class="text-amber-800 font-black">Thầy Kết</span> để thầy kiểm tra và khen thưởng nhé! 🍎🐾
+            </p>
+            <button id="btn-close-modal" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-3 rounded-full text-lg shadow-lg">
+                Đồng ý (OK) 👍
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DATA & INTERACTION LOGIC -->
+    <script>
+        // DATA OBJECTS FOR EASY RENDERING
+
+        const vocabMC = [
+            { id: "v1", q: "Traditional artisans usually ____________ their technical skills to their children.", opts: ["hand over", "hand down", "give up", "take in"] },
+            { id: "v2", q: "My grandmother used to tell us fascinating stories about the _______ past of our hometown.", opts: ["physical", "historical", "numeric", "artificial"] },
+            { id: "v3", q: "We need to ____________ our cultural values before they disappear completely in modern times.", opts: ["preserve", "damage", "destroy", "replace"] },
+            { id: "v4", q: "In many traditional Vietnamese families, the father is considered the main ____________.", opts: ["volunteer", "craftsman", "housekeeper", "breadwinner"] },
+            { id: "v5", q: "Modern technology has significantly improved people's standard of ____________.", opts: ["life", "living", "live", "lively"] },
+            { id: "v6", q: "My uncle decided to ____________ making pottery after retiring from his office job.", opts: ["look up", "give up", "take up", "turn down"] },
+            { id: "v7", q: "Many young people today tend to lose ____________ with their cultural roots.", opts: ["touch", "sight", "hand", "mind"] },
+            { id: "v8", q: "The village is famous for its hand-woven silk, which is exported to many ____________ countries.", opts: ["alien", "foreign", "outer", "unusual"] },
+            { id: "v9", q: "It takes years of practice to master the art of making fine ____________.", opts: ["asphalt", "plastic", "concrete", "pottery"] },
+            { id: "v10", q: "The old pagoda stands as a historic ____________ of our town's rich heritage.", opts: ["landmark", "skyscraper", "apartment", "highway"] },
+            { id: "v11", q: "Local authorities are trying to ____________ traditional crafts to boost tourism.", opts: ["restrict", "prevent", "promote", "eliminate"] },
+            { id: "v12", q: "Growing up in a rural area gave him a strong sense of ____________.", opts: ["isolation", "community", "independence", "silence"] },
+            { id: "v13", q: "Traditional folk songs are an essential part of our nation's ____________ heritage.", opts: ["cultural", "economic", "industrial", "financial"] },
+            { id: "v14", q: "They decided to ____________ a new workshop to teach weaving to young villagers.", opts: ["set up", "put off", "call off", "run out"] },
+            { id: "v15", q: "Watching old black-and-white photos always brings ____________ fond memories of school days.", opts: ["back", "off", "out", "up"] },
+            { id: "v16", q: "Unlike modern apartments, traditional houses in the countryside often have a large _______.", opts: ["elevator", "corridor", "courtyard", "balcony"] },
+            { id: "v17", q: "Elders often play a key role in maintaining family ____________.", opts: ["networks", "modernities", "devices", "traditions"] },
+            { id: "v18", q: "She has a deep ____________ for the historical stories told by her grandparents.", opts: ["ignorance", "disrespect", "respect", "rejection"] },
+            { id: "v19", q: "Electric lights have completely replaced oil ____________ in most rural households.", opts: ["lamps", "bulbs", "tubes", "torches"] },
+            { id: "v20", q: "High-rise buildings are gradually taking the ____________ of old single-story houses.", opts: ["space", "place", "room", "seat"] },
+            { id: "v21", q: "To keep up with modern trends, traditional craft villages must ____________ their products.", opts: ["ruin", "modernize", "forget", "ignore"] },
+            { id: "v22", q: "Life in the 19th century was drastically different ____________ life in the 21st century.", opts: ["from", "with", "to", "about"] },
+            { id: "v23", q: "He tried his best to ____________ on his childhood with a positive attitude.", opts: ["look out", "look forward", "look after", "look back"] },
+            { id: "v24", q: "Folk tales often carry moral lessons that help children learn right ____________ wrong.", opts: ["with", "to", "from", "against"] },
+            { id: "v25", q: "My grandmother used to spend hours ____________ clothes for the whole family.", opts: ["breaking", "mending", "burning", "dropping"] },
+            { id: "v26", q: "In the past, people heavily relied ____________ natural light during daytime activities.", opts: ["in", "on", "at", "for"] },
+            { id: "v27", q: "The old bridge was built entirely ____________ hand without modern machinery.", opts: ["by", "with", "in", "from"] },
+            { id: "v28", q: "Participating in traditional festivals helps strengthen community ____________.", opts: ["ropes", "chains", "bonds", "wires"] },
+            { id: "v29", q: "Traditional customs are passed down from generation ____________ generation.", opts: ["in", "with", "for", "to"] },
+            { id: "v30", q: "Artisans in this village are famous ____________ carving intricate wooden patterns.", opts: ["with", "about", "for", "in"] }
+        ];
+
+        const grammarMC = [
+            { id: "g1", q: "Local authorities are taking effective measures for the ____________ of historical monuments.", opts: ["preserve", "preservation", "preservative", "preserved"] },
+            { id: "g2", q: "The ancient citadel is one of the most famous ____________ sites in our country.", opts: ["history", "historic", "historically", "historian"] },
+            { id: "g3", q: "We were deeply impressed by the extraordinary ____________ of the young artisan.", opts: ["skill", "skillful", "skillfully", "unskillful"] },
+            { id: "g4", q: "She works ____________ to restore damaged oil paintings in the national art gallery.", opts: ["tire", "tireless", "tirelessly", "tiredness"] },
+            { id: "g5", q: "The exhibition showcases the cultural ____________ of different ethnic minority groups.", opts: ["diverse", "diversity", "diversify", "diversely"] },
+            { id: "g6", q: "It is essential to educate children about the ____________ of protecting traditional crafts.", opts: ["important", "importance", "importantly", "unimportant"] },
+            { id: "g7", q: "Traditional handicrafts are becoming increasingly ____________ to international tourists.", opts: ["attract", "attraction", "attractive", "attractively"] },
+            { id: "g8", q: "My grandfather has a vast ____________ of traditional folk songs and tales.", opts: ["know", "knowable", "knowledgeable", "knowledge"] },
+            { id: "g9", q: "They celebrated the successful ____________ of their community library project.", opts: ["complete", "completely", "completion", "completed"] },
+            { id: "g10", q: "The museum guide gave a very ____________ explanation of how ancient pottery was made.", opts: ["inform", "information", "informative", "informatively"] },
+            { id: "g11", q: "Many villagers rely on silk weaving for their daily ____________.", opts: ["live", "livelihood", "livingly", "alive"] },
+            { id: "g12", q: "The historical site was ____________ damaged during the severe storm last month.", opts: ["bad", "worse", "badness", "badly"] },
+            { id: "g13", q: "Young generations should express their ____________ to elderly people who built the community.", opts: ["grateful", "gratitude", "gratefully", "ungrateful"] },
+            { id: "g14", q: "The artisan demonstrated his technique with great ____________ and accuracy.", opts: ["precision", "precise", "precisely", "imprecise"] },
+            { id: "g15", q: "Old stories provide an accurate ____________ of life in rural villages fifty years ago.", opts: ["describe", "description", "descriptive", "descriptively"] },
+            { id: "g16", q: "Community leaders encourage young villagers to participate ____________ in cultural events.", opts: ["active", "activity", "actively", "action"] },
+            { id: "g17", q: "The sudden ____________ of traditional craft techniques concerns many culture experts.", opts: ["disappear", "disappeared", "disappearing", "disappearance"] },
+            { id: "g18", q: "He made a generous ____________ to the fund for preserving old wooden houses.", opts: ["contribute", "contribution", "contributor", "contributory"] },
+            { id: "g19", q: "We enjoyed the peaceful and ____________ atmosphere of the ancient village.", opts: ["tranquil", "tranquility", "tranquilize", "tranquilly"] },
+            { id: "g20", q: "The craftsman spent three months on the ____________ of this wooden statue.", opts: ["create", "creatively", "creative", "creation"] }
+        ];
+
+        const wordFormQuestions = [
+            { id: "wf1", pre: "The ancient village has managed to maintain its original ", root: "TRADITION", post: " appearance." },
+            { id: "wf2", pre: "Artisans in this village are highly ", root: "SKILL", post: " in making ceramic products." },
+            { id: "wf3", pre: "The government supports projects aiming at the ", root: "REVIVE", post: " of local crafts." },
+            { id: "wf4", pre: "Visiting historical sites can broaden students' ", root: "KNOW", post: " of national history." },
+            { id: "wf5", pre: "The old town attracts millions of international ", root: "VISIT", post: " every year." },
+            { id: "wf6", pre: "Making lacquerware requires a lot of patience and ", root: "CREATIVE", post: "." },
+            { id: "wf7", pre: "The government has taken steps to ", root: "MODERN", post: " the historic district." },
+            { id: "wf8", pre: "Young people are encouraged to preserve their cultural ", root: "IDENTIFY", post: "." },
+            { id: "wf9", pre: "She gave an ", root: "INSPIRE", post: " speech about the history of the ancient citadel." },
+            { id: "wf10", pre: "Folk games were a popular form of ", root: "ENTERTAIN", post: " for children in the past." },
+            { id: "wf11", pre: "Historical monuments must be protected for future ", root: "GENERATE", post: "." },
+            { id: "wf12", pre: "The village is ", root: "CONVENIENT", post: " located near a major river, facilitating trade." },
+            { id: "wf13", pre: "Craftsmanship requires high levels of detail and ", root: "ACCURATE", post: "." },
+            { id: "wf14", pre: "The old houses were ", root: "ORIGINAL", post: " built using sturdy local timber." },
+            { id: "wf15", pre: "Many villagers found ", root: "EMPLOY", post: " in local handicraft workshops." },
+            { id: "wf16", pre: "The story highlights the deep ", root: "ATTACH", post: " between family members in traditional households." },
+            { id: "wf17", pre: "Cultural festivals are organized ", root: "ANNUAL", post: " to promote local tourism." },
+            { id: "wf18", pre: "He showed great ", root: "ENTHUSIAST", post: " in collecting ancient ceramic artifacts." },
+            { id: "wf19", pre: "They are trying to find an effective ", root: "SOLVE", post: " to preserve fading frescoes." },
+            { id: "wf20", pre: "The festival ended with a magnificent ", root: "PERFORM", post: " of traditional music." }
+        ];
+
+        const tensesMC = [
+            { id: "tmc1", q: "While my grandmother ____________ dinner, the power went out last night.", opts: ["cooked", "was cooking", "is cooking", "has cooked"] },
+            { id: "tmc2", q: "They ____________ in this historic town since 2010.", opts: ["lived", "were living", "have lived", "live"] },
+            { id: "tmc3", q: "I wish our village ____________ a modern cultural center for young people.", opts: ["has", "had", "will have", "is having"] },
+            { id: "tmc4", q: "When we arrived at the museum at 9 a.m., the guide ____________ the exhibition history.", opts: ["will explain", "has explained", "explains", "was explaining"] },
+            { id: "tmc5", q: "She wishes she ____________ more time to study traditional silk weaving techniques.", opts: ["have", "had", "has had", "will have"] },
+            { id: "tmc6", q: "While the artisans ____________ wooden statues, the visitors took photos.", opts: ["were carving", "carved", "carve", "are carving"] },
+            { id: "tmc7", q: "Nam wishes he ____________ how to make traditional clay pots like his grandfather.", opts: ["knows", "will know", "has known", "knew"] },
+            { id: "tmc8", q: "At 8 p.m. yesterday, the village elders ____________ about preserving the local festival.", opts: ["discussed", "were discussing", "discuss", "have discussed"] },
+            { id: "tmc9", q: "I wish more young people ____________ interest in learning traditional crafts nowadays.", opts: ["took", "take", "will take", "have taken"] },
+            { id: "tmc10", q: "As I ____________ through the old quarter, I suddenly saw an ancient well.", opts: ["walked", "was walking", "walk", "am walking"] }
+        ];
+
+        const tensesFill = [
+            { id: "tf1", text: "While the villagers (prepare) ", verb: "prepare", post: " for the festival, it started to rain heavily." },
+            { id: "tf2", text: "I wish I (know) ", verb: "know", post: " more about the history of this traditional handicraft village." },
+            { id: "tf3", text: "At 9 a.m. yesterday, Mr. Lam (demonstrate) ", verb: "demonstrate", post: " how to weave bamboo baskets to students." },
+            { id: "tf4", text: "She wishes her family (live) ", verb: "live", post: " closer to the historical museum so she could visit often." },
+            { id: "tf5", text: "They (walk) ", verb: "walk", post: " along the ancient wall when they found an old bronze coin." },
+            { id: "tf6", text: "My father wishes he (own) ", verb: "own", post: " a set of traditional ceramic tea cups." },
+            { id: "tf7", text: "While my mother (mend) ", verb: "mend", post: " an old coat, my brother was reading a folk storybook." },
+            { id: "tf8", text: "The children wish there (be) ", verb: "be", post: " more traditional games played in their schoolyard." },
+            { id: "tf9", text: "When the fire alarm broke out, the museum staff (clean) ", verb: "clean", post: " the ancient relic display case." },
+            { id: "tf10", text: "Hoa wishes she (can) ", verb: "can", post: " speak the regional dialect fluently like her grandparents." }
+        ];
+
+        const clozePassages = [
+            {
+                title: "Passage 1",
+                text: "Preserving traditional craft villages is an important task in modern Vietnam. In the past, almost every region had its own unique craft, ranging (1) ______ silk weaving to pottery making. These crafts not only provided villagers (2) ______ a stable income but also reflected local culture and history. However, rapid industrialization has caused many young people to abandon traditional work for city jobs. (3) ______, several traditional crafts are in danger of disappearing completely. To solve this problem, local authorities are trying to (4) ______ tourism with handicraft production. Visitors can now try making products themselves, which creates an exciting (5) ______ and helps artisans maintain their livelihood.",
+                questions: [
+                    { id: "c1", label: "(1)", opts: ["from", "to", "with", "in"] },
+                    { id: "c2", label: "(2)", opts: ["for", "with", "about", "on"] },
+                    { id: "c3", label: "(3)", opts: ["Otherwise", "Therefore", "Furthermore", "However"] },
+                    { id: "c4", label: "(4)", opts: ["combine", "replace", "destroy", "ignore"] },
+                    { id: "c5", label: "(5)", opts: ["expert", "experiment", "experience", "explanation"] }
+                ]
+            },
+            {
+                title: "Passage 2",
+                text: "Life in Vietnamese villages decades ago was vastly different from today. Families were generally large, with three or four generations residing under the same (6) ______. People relied mainly on agriculture and manual labor for their daily survival. Children used to play simple traditional games like hide-and-seek or tug-of-war instead of spending hours on electronic (7) ______. Electricity was scarce, so villagers usually went to bed early and woke up at (8) ______ to start farm work. Although life was physically demanding and material conditions were limited, people shared strong community (9) ______ and always helped one another during difficult times. Today, while modern amenities have made life much easier, many elders still look (10) ______ on those peaceful days with deep nostalgia.",
+                questions: [
+                    { id: "c6", label: "(6)", opts: ["floor", "wall", "roof", "ceiling"] },
+                    { id: "c7", label: "(7)", opts: ["devices", "tools", "vehicles", "machines"] },
+                    { id: "c8", label: "(8)", opts: ["dusk", "noon", "midnight", "dawn"] },
+                    { id: "c9", label: "(9)", opts: ["bonds", "ropes", "limits", "borders"] },
+                    { id: "c10", label: "(10)", opts: ["forward", "back", "up", "out"] }
+                ]
+            },
+            {
+                title: "Passage 3",
+                text: "The Dong Ho folk painting village in Bac Ninh province is famous for its distinct artistic style. Artisans use natural materials to create vibrant colors for their prints. For instance, black color is made from the ash of burned bamboo leaves, while white comes from ground seashell (11) ______. The paintings depict simple scenes of rural life, traditional customs, and wishes for good luck and prosperity. (12) ______ Dong Ho paintings were once indispensable during the Lunar New Year festival, demand has decreased significantly over recent decades. To (13) ______ this unique art form alive, remaining artisan families are opening workshops for tourists and students. Learning about Dong Ho paintings helps younger generations (14) ______ their cultural roots and appreciate the meticulous labor of traditional (15) ______.",
+                questions: [
+                    { id: "c11", label: "(11)", opts: ["liquid", "powder", "gas", "solid"] },
+                    { id: "c12", label: "(12)", opts: ["Although", "Because", "Despite", "So"] },
+                    { id: "c13", label: "(13)", opts: ["turn", "make", "keep", "let"] },
+                    { id: "c14", label: "(14)", opts: ["forget", "ignore", "understand", "reject"] },
+                    { id: "c15", label: "(15)", opts: ["artisans", "mechanics", "drivers", "engineers"] }
+                ]
+            }
+        ];
+
+        const readingPassages = [
+            {
+                title: "Reading Passage 1",
+                text: "In traditional Vietnamese society, the extended family played a central role in maintaining cultural continuity and social stability. An extended family typically included grandparents, parents, children, and sometimes aunts and uncles living together in a single compound. This living structure allowed for shared domestic duties, mutual financial support, and efficient childcare.<br><br>Grandparents held a position of high respect within the household. They were responsible for passing down moral values, family traditions, and cultural heritage to the younger generation through oral storytelling and daily guidance. Children were taught the virtue of filial piety—showing deep respect, obedience, and care for their parents and elders throughout their lives.<br><br>However, as Vietnam undergoes rapid economic development and urbanization, family structures are changing noticeably. Nuclear families consisting only of parents and children are becoming far more common in urban areas. Young adults often move to big cities for educational and career opportunities, leading to a physical separation from their hometowns. While this trend fosters individual independence and career mobility, it also presents challenges in maintaining daily intergenerational connections and preserving age-old family customs.",
+                questions: [
+                    { id: "rc1", q: "What is the main idea of the passage?", opts: ["The history of economic development in big cities in Vietnam.", "The structure and evolution of traditional and modern Vietnamese families.", "The reasons why young adults prefer moving to urban centers.", "The technical process of building traditional family compounds."] },
+                    { id: "rc2", q: "According to paragraph 1, which of the following is NOT mentioned as a benefit of extended families?", opts: ["Shared household chores.", "Mutual financial assistance.", "Free higher education for children.", "Efficient care for young children."] },
+                    { id: "rc3", q: "The word \"filial piety\" in paragraph 2 is closest in meaning to ____________.", opts: ["respect and duty towards one's parents and elders", "financial independence from one's family", "artistic talent inherited from elders", "desire to live alone in big cities"] },
+                    { id: "rc4", q: "The word \"They\" in paragraph 2 refers to ____________.", opts: ["Grandparents", "Children", "Aunts and uncles", "Moral values"] },
+                    { id: "rc5", q: "According to the passage, what has caused family structures in Vietnam to change?", opts: ["Natural disasters and environmental changes.", "Rapid economic development and urbanization.", "Government laws prohibiting extended families.", "The decline of traditional craft villages."] }
+                ]
+            },
+            {
+                title: "Reading Passage 2",
+                text: "Bat Trang, an ancient pottery village located on the outskirts of Hanoi, has a history spanning over seven hundred years. Situated near the Red River, the village possessed rich clay resources and convenient river transport, allowing its ceramic products to flourish and trade widely across the country and overseas since the 14th century.<br><br>Bat Trang ceramics are renowned for their quality, durability, and unique glaze techniques. Artisans use natural raw materials to create distinct glazes such as blue, brown, white, and cracked glazes. Every stage of production—from mixing clay and shaping items on potter's wheels to painting decorative patterns and firing pots in high-temperature kilns—requires precision, skill, and deep experience.<br><br>In recent years, Bat Trang has transformed itself to adapt to modern economic demands while maintaining its traditional identity. Many workshops have upgraded their kilns from wood-burning to gas-burning models to minimize environmental pollution. Additionally, the village has become a popular eco-tourism destination. Tourists can tour historic alleyways, visit ancient kilns, and participate in hands-on pottery workshops where they create their own clay souvenirs under the guidance of local craftsmen.",
+                questions: [
+                    { id: "rc6", q: "What is the primary topic of the text?", opts: ["The environmental impact of modern gas kilns in Hanoi.", "The rich history, craftsmanship, and modern adaptation of Bat Trang pottery village.", "The transportation network along the Red River in the 14th century.", "Step-by-step instructions on how to paint ceramic decorative patterns."] },
+                    { id: "rc7", q: "According to paragraph 1, why was Bat Trang geographically favorable for ceramic production?", opts: ["It was located next to a major dense forest for wood supply.", "It had a cold climate suitable for drying clay items.", "It was situated inside the royal citadel of Hanoi.", "It had abundant clay resources and convenient river transportation."] },
+                    { id: "rc8", q: "The word \"flourish\" in paragraph 1 is OPPOSITE in meaning to ____________.", opts: ["thrive", "decline", "expand", "succeed"] },
+                    { id: "rc9", q: "The word \"they\" in paragraph 3 refers to ____________.", opts: ["Tourists", "Historic alleyways", "Ancient kilns", "Hands-on pottery workshops"] },
+                    { id: "rc10", q: "Which of the following is TRUE according to the passage?", opts: ["Bat Trang village was founded less than one hundred years ago.", "Artisans in Bat Trang use synthetic chemical dyes for their unique glazes.", "Workshops have adopted gas kilns to reduce environmental pollution.", "Visitors are not allowed to touch or make pottery products in the village."] }
+                ]
+            }
+        ];
+
+        const speakingMC = [
+            {
+                id: "sp1",
+                dialog: "Nam: \"Thank you so much for showing me how to make a clay pot, Mr. Binh!\"<br>Mr. Binh: \"____________. I'm glad you enjoyed the workshop.\"",
+                opts: ["You're very welcome", "I don't care", "You must be joking", "That's a bad idea"]
+            },
+            {
+                id: "sp2",
+                dialog: "Lan: \"It was really kind of you to lend me your book on local history.\"<br>Mai: \"____________. Hope it helps with your project!\"",
+                opts: ["Same to you", "Yes, of course", "I agree with you", "No problem at all"]
+            },
+            {
+                id: "sp3",
+                dialog: "Student: \"We are extremely grateful for your informative lecture on traditional crafts.\"<br>Guest Speaker: \"____________. It was my pleasure to share it with you.\"",
+                opts: ["Don't mention it", "Never mind", "I'm sorry to hear that", "That's right"]
+            },
+            {
+                id: "sp4",
+                dialog: "Hoa: \"Thanks a lot for helping us clean up the historical pagoda yard yesterday.\"<br>Minh: \"____________. We should join hands to protect our local heritage.\"",
+                opts: ["You can say that again", "Think nothing of it", "I'd love to", "It's too late"]
+            },
+            {
+                id: "sp5",
+                dialog: "Tourist: \"Thank you for giving us detailed directions to the ancient citadel!\"<br>Local Resident: \"____________. Have a wonderful trip in our city!\"",
+                opts: ["You're wrong", "I'm busy now", "My pleasure", "I couldn't agree more"]
+            }
+        ];
+
+        const speakingArr = [
+            {
+                id: "arr1",
+                q: "Question 1",
+                lines: ["a. Lan: That sounds great! Where is the exhibition being held?", "b. Phong: Why don't we visit the traditional craft museum this Sunday morning?", "c. Phong: It's at the city cultural center on Le Loi Street."],
+                opts: ["b – a – c", "a – b – c", "c – a – b", "b – c – a"]
+            },
+            {
+                id: "arr2",
+                q: "Question 2",
+                lines: ["a. Artisan: You're welcome! It takes a lot of practice to get the shape right.", "b. Thu: Thank you for guiding me through the steps of shaping clay on the wheel!", "c. Thu: I will keep practicing at home to improve my technique."],
+                opts: ["a – b – c", "b – a – c", "c – b – a", "b – c – a"]
+            },
+            {
+                id: "arr3",
+                q: "Question 3",
+                lines: ["a. Hoa: First, we ought to collect old photos and traditional artifacts from village elders.", "b. Minh: How should our youth group prepare for the upcoming heritage display day?", "c. Minh: Good idea! What should we do after gathering all those items?", "d. Hoa: Then, we will design informative posters to explain the origin of each object.", "e. Minh: Perfect! I will help you write the captions for the posters."],
+                opts: ["b – a – c – d – e", "a – c – b – e – d", "c – a – b – d – e", "a – b – c – d – e"]
+            },
+            {
+                id: "arr4",
+                q: "Question 4",
+                lines: ["a. An: I wish I knew more about how my great-grandparents lived in the countryside past decades.", "b. An: That makes sense! Can I come along with you to meet her this weekend?", "c. Binh: You can ask my grandmother! She loves telling stories about rural life in the old days.", "d. Binh: Sure! She will be delighted to share her childhood memories with us.", "e. An: Thanks! I'll prepare a few questions about traditional games and festivals beforehand."],
+                opts: ["a – b – c – e – d", "a – c – b – d – e", "c – a – b – d – e", "e – c – a – d – b"]
+            }
+        ];
+
+        const writingRearrange = [
+            "local / preserved / artisans / carefully / historical / have / artifacts / these / .",
+            "while / I / old / photos / looking / was / through / , / I / found / letter / an / ancient / .",
+            "traditional / skills / passed / from / down / generation / generation / are / to / .",
+            "wish / I / could / I / visit / ancient / the / village / weekend / this / .",
+            "many / people / young / preserve / to / joined / hands / historical / landmarks / ."
+        ];
+
+        const writingBuild = [
+            "While / artisans / make / pottery / , / visitors / watch / attentive / .",
+            "My grandfather / tell / traditional / story / when / light / go / out / .",
+            "We / wish / government / spend / more / money / preserve / historic / sites / .",
+            "Young / people / should / take / pride / national / cultural / heritage / .",
+            "They / live / traditional / wooden / house / when / they / be / young / ."
+        ];
+
+        const writingWish = [
+            { original: "I don't know how to play traditional folk games.", prefix: "→ I wish " },
+            { original: "It is a pity that my town doesn't have a museum for traditional handicrafts.", prefix: "→ My town elders wish " },
+            { original: "My brother cannot visit the ancient pagoda with us today.", prefix: "→ My brother wishes " },
+            { original: "There are no traditional festivals organized in our village this summer.", prefix: "→ Villagers wish " },
+            { original: "I am sorry that I don't have enough time to learn silk weaving techniques.", prefix: "→ I wish " }
+        ];
+
+        const transENVI = [
+            "Preserving traditional craft villages helps keep our national cultural identity alive.",
+            "While we were visiting the historic citadel, a friendly local guide explained its construction history.",
+            "Many young people wish they had more opportunities to learn traditional handicrafts from master artisans.",
+            "The government is launching a new program to restore ancient wooden structures in rural areas.",
+            "Living in an extended family allows children to absorb traditional values from their grandparents."
+        ];
+
+        const transVIEN = [
+            "Việc gìn giữ các phong tục truyền thống đóng vai trò quan trọng trong việc xây dựng cộng đồng vững mạnh.",
+            "Trong khi các nghệ nhân đang làm đồ gốm, nhiều du khách nước ngoài đã chụp rất nhiều ảnh.",
+            "Tôi ước làng của chúng tôi có một trung tâm trưng bày các sản phẩm thủ công truyền thống.",
+            "Các thế hệ trẻ nên bày tỏ sự kính trọng đối với những người đi trước, những người đã bảo tồn di sản quê hương.",
+            "Những câu chuyện cổ tích thường chứa đựng các bài học đạo đức về tình yêu thương và sự giúp đỡ lẫn nhau."
+        ];
+
+        const listeningTF = [
+            { id: "ltf1", statement: "Grandma used to have a three-month summer holiday when she was a pupil." },
+            { id: "ltf2", statement: "During the school year, Grandma and her friends had lessons all day at school." },
+            { id: "ltf3", statement: "Grandma and her classmates used to study computer science and music." },
+            { id: "ltf4", statement: "Grandma used to walk to school barefoot because she didn't have shoes or sandals." }
+        ];
+
+        const listeningMC = [
+            { id: "lmc1", q: "How long was Grandma's summer holiday when she was a pupil?", opts: ["One month", "Two months", "Three months", "Four months"] },
+            { id: "lmc2", q: "When did Grandma have her lessons at school?", opts: ["In the morning only", "In the afternoon only", "All day long", "Only at weekends"] },
+            { id: "lmc3", q: "Did Grandma and her friends have extra lessons or a lot of homework?", opts: ["Yes, they had a lot of homework and extra lessons.", "No, they didn't have a lot of homework and never had extra lessons.", "They had extra lessons but no homework.", "They had a lot of homework but no extra lessons."] },
+            { id: "lmc4", q: "What did Grandma do with her friends during break time?", opts: ["They played games on mobile phones and iPads.", "They chatted face-to-face and played traditional games.", "They stayed in class and studied computer science.", "They went home to have lunch."] }
+        ];
+
+        const listeningGap = [
+            { id: "lg1", pre: "Thanh wishes they had a three-month summer ", post: "." },
+            { id: "lg2", pre: "Grandma's generation didn't have music and arts, or computer ", post: "." },
+            { id: "lg3", pre: "Grandma and her friends walked to school ", post: " all the time." },
+            { id: "lg4", pre: "During break time, they played ", post: " games such as hide-and-seek, tug of war, and skipping." }
+        ];
+
+        // RENDER FUNCTIONS
+
+        function renderMC(containerId, data) {
+            const container = document.getElementById(containerId);
+            let html = '';
+            data.forEach((item, index) => {
+                html += `
+                <div class="bg-white p-4 rounded-xl border border-emerald-200 shadow-sm hover:shadow transition">
+                    <p class="font-bold text-gray-800 mb-2.5 text-sm md:text-base">${index + 1}. ${item.q}</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-semibold text-gray-700">
+                        ${item.opts.map((opt, i) => {
+                            const letter = String.fromCharCode(65 + i);
+                            return `
+                            <label class="option-label flex items-center gap-2 p-2 rounded-lg border border-gray-100 bg-gray-50/50">
+                                <input type="radio" name="${item.id}" value="${letter}" class="mc-radio text-emerald-600 focus:ring-emerald-500">
+                                <span class="option-text"><strong class="text-emerald-700">${letter}.</strong> ${opt}</span>
+                            </label>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderWordForm() {
+            const container = document.getElementById('word-form-container');
+            let html = '';
+            wordFormQuestions.forEach((item, idx) => {
+                html += `
+                <div class="bg-white p-3 rounded-lg border border-blue-100 flex flex-wrap items-center gap-1.5 font-medium text-gray-800 text-sm md:text-base">
+                    <span>${idx + 1}. ${item.pre}</span>
+                    <input type="text" class="fill-input w-44" data-q="${item.id}">
+                    <span>${item.post}</span>
+                    <span class="ml-auto text-xs font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded">(${item.root})</span>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderTensesFill() {
+            const container = document.getElementById('tenses-fill-container');
+            let html = '';
+            tensesFill.forEach((item, idx) => {
+                html += `
+                <div class="bg-white p-3 rounded-lg border border-emerald-100 flex flex-wrap items-center gap-1.5 font-medium text-gray-800 text-sm md:text-base">
+                    <span>${idx + 1}. ${item.text}</span>
+                    <input type="text" class="fill-input w-40" data-q="${item.id}">
+                    <span>${item.post}</span>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderCloze() {
+            const container = document.getElementById('cloze-container');
+            let html = '';
+            clozePassages.forEach((p) => {
+                html += `
+                <div class="bg-white p-5 rounded-2xl border-2 border-emerald-300 shadow-sm space-y-4">
+                    <h4 class="font-extrabold text-emerald-900 text-base">${p.title}</h4>
+                    <p class="leading-relaxed text-gray-800 bg-emerald-50/50 p-4 rounded-xl text-justify font-medium text-sm md:text-base border border-emerald-100">${p.text}</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+                        ${p.questions.map(q => `
+                            <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                                <span class="font-black text-emerald-800 text-xs block mb-1">Câu ${q.label}:</span>
+                                <select class="mc-select fill-input w-full text-xs font-bold" data-q="${q.id}">
+                                    <option value="">-- Chọn --</option>
+                                    ${q.opts.map((opt, idx) => `
+                                        <option value="${String.fromCharCode(65 + idx)}">${String.fromCharCode(65 + idx)}. ${opt}</option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderReadingComp() {
+            const container = document.getElementById('reading-comp-container');
+            let html = '';
+            readingPassages.forEach(p => {
+                html += `
+                <div class="bg-white p-5 rounded-2xl border-2 border-amber-300 shadow-sm space-y-4">
+                    <h4 class="font-extrabold text-amber-900 text-lg">${p.title}</h4>
+                    <div class="leading-relaxed text-gray-800 bg-amber-50/40 p-4 rounded-xl text-justify font-medium text-sm md:text-base border border-amber-100">${p.text}</div>
+                    <div class="space-y-4 pt-2">
+                        ${p.questions.map((q, idx) => `
+                            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200">
+                                <p class="font-bold text-gray-800 mb-2 text-sm md:text-base">${idx + 1}. ${q.q}</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm font-semibold">
+                                    ${q.opts.map((opt, i) => {
+                                        const letter = String.fromCharCode(65 + i);
+                                        return `
+                                        <label class="option-label flex items-center gap-2 p-2 rounded-lg border border-gray-200 bg-white">
+                                            <input type="radio" name="${q.id}" value="${letter}" class="mc-radio text-amber-600 focus:ring-amber-500">
+                                            <span class="option-text"><strong class="text-amber-800">${letter}.</strong> ${opt}</span>
+                                        </label>
+                                        `;
+                                    }).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSpeakingArr() {
+            const container = document.getElementById('speaking-arr-container');
+            let html = '';
+            speakingArr.forEach(item => {
+                html += `
+                <div class="bg-white p-4 rounded-xl border border-emerald-200 shadow-sm space-y-3">
+                    <p class="font-extrabold text-emerald-900">${item.q}:</p>
+                    <div class="bg-emerald-50 p-3 rounded-lg text-sm text-gray-800 font-medium space-y-1">
+                        ${item.lines.map(line => `<div>${line}</div>`).join('')}
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-sm font-semibold">
+                        ${item.opts.map((opt, i) => {
+                            const letter = String.fromCharCode(65 + i);
+                            return `
+                            <label class="option-label flex items-center gap-2 p-2 rounded-lg border border-gray-200 bg-gray-50">
+                                <input type="radio" name="${item.id}" value="${letter}" class="mc-radio text-emerald-600">
+                                <span class="option-text"><strong class="text-emerald-800">${letter}.</strong> ${opt}</span>
+                            </label>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderWriting() {
+            // Rearrange
+            const rContainer = document.getElementById('writing-rearrange-container');
+            rContainer.innerHTML = writingRearrange.map((item, idx) => `
+                <div class="bg-white p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <p class="font-bold text-gray-800 text-sm md:text-base">${idx + 1}. ${item}</p>
+                    <textarea rows="2" class="fill-input w-full text-sm font-medium" placeholder="Gõ lại câu hoàn chỉnh vào đây..." data-q="w-r-${idx}"></textarea>
+                </div>
+            `).join('');
+
+            // Build
+            const bContainer = document.getElementById('writing-build-container');
+            bContainer.innerHTML = writingBuild.map((item, idx) => `
+                <div class="bg-white p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <p class="font-bold text-gray-800 text-sm md:text-base">${idx + 1}. ${item}</p>
+                    <textarea rows="2" class="fill-input w-full text-sm font-medium" placeholder="Viết lại câu hoàn chỉnh..." data-q="w-b-${idx}"></textarea>
+                </div>
+            `).join('');
+
+            // Wish
+            const wContainer = document.getElementById('writing-wish-container');
+            wContainer.innerHTML = writingWish.map((item, idx) => `
+                <div class="bg-white p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <p class="font-bold text-gray-800 text-sm md:text-base">${idx + 1}. ${item.original}</p>
+                    <div class="flex items-center gap-2">
+                        <span class="font-extrabold text-emerald-800 text-sm md:text-base whitespace-nowrap">${item.prefix}</span>
+                        <input type="text" class="fill-input w-full text-sm font-medium" placeholder="gõ phần còn lại..." data-q="w-w-${idx}">
+                    </div>
+                </div>
+            `).join('');
+
+            // Translation EN-VI
+            const tevContainer = document.getElementById('trans-en-vi-container');
+            tevContainer.innerHTML = transENVI.map((item, idx) => `
+                <div class="bg-white p-3.5 rounded-lg border border-amber-200 space-y-2">
+                    <p class="font-bold text-gray-800 text-sm md:text-base">${idx + 1}. ${item}</p>
+                    <input type="text" class="fill-input w-full text-sm font-medium" placeholder="Dịch sang tiếng Việt..." data-q="t-ev-${idx}">
+                </div>
+            `).join('');
+
+            // Translation VI-EN
+            const tveContainer = document.getElementById('trans-vi-en-container');
+            tveContainer.innerHTML = transVIEN.map((item, idx) => `
+                <div class="bg-white p-3.5 rounded-lg border border-emerald-200 space-y-2">
+                    <p class="font-bold text-gray-800 text-sm md:text-base">${idx + 1}. ${item}</p>
+                    <input type="text" class="fill-input w-full text-sm font-medium" placeholder="Dịch sang tiếng Anh..." data-q="t-ve-${idx}">
+                </div>
+            `).join('');
+        }
+
+        function renderListening() {
+            // Task 1: TF
+            const tfContainer = document.getElementById('listening-tf-container');
+            tfContainer.innerHTML = listeningTF.map((item, idx) => `
+                <div class="bg-white p-3.5 rounded-xl border border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm md:text-base">
+                    <p class="font-bold text-gray-800">${idx + 1}. ${item.statement}</p>
+                    <div class="flex items-center gap-4 shrink-0 font-extrabold">
+                        <label class="flex items-center gap-1 text-emerald-700 cursor-pointer">
+                            <input type="radio" name="${item.id}" value="T" class="mc-radio"> True (T)
+                        </label>
+                        <label class="flex items-center gap-1 text-red-600 cursor-pointer">
+                            <input type="radio" name="${item.id}" value="F" class="mc-radio"> False (F)
+                        </label>
+                    </div>
+                </div>
+            `).join('');
+
+            // Task 2: MC
+            renderMC('listening-mc-container', listeningMC);
+
+            // Task 3: Gap Filling
+            const gapContainer = document.getElementById('listening-gap-container');
+            gapContainer.innerHTML = listeningGap.map((item, idx) => `
+                <div class="bg-white p-3 rounded-lg border border-amber-100 flex flex-wrap items-center gap-1.5 font-medium text-gray-800 text-sm md:text-base">
+                    <span>${idx + 1}. ${item.pre}</span>
+                    <input type="text" class="fill-input w-44" data-q="${item.id}">
+                    <span>${item.post}</span>
+                </div>
+            `).join('');
+        }
+
+        // FARM ANIMATION & PROGRESS LOGIC
+        const farmEmotes = ["🐶", "🐱", "🐰", "🐮", "🐑", "🐥", "🐴"];
+        const cheers = [
+            "Tuyệt vời lắm! Thêm một quả táo tươi ngon! 🍎",
+            "Cố lên em ơi, nông trại đang bội thu rồi! 🌾",
+            "Chú bò vui mừng kêu: "Moo Moo!" 🐮",
+            "Thỏ con đang nhảy nhót cổ vũ em đó! 🐰",
+            "Bài làm rất tốt, tiếp tục phát huy nhé! 🌟"
+        ];
+
+        function updateProgress() {
+            const allInputs = document.querySelectorAll('.fill-input, textarea.fill-input');
+            const allRadios = document.querySelectorAll('input[type="radio"]:checked');
+            const allSelects = document.querySelectorAll('select.mc-select');
+
+            let filledInputsCount = 0;
+            allInputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    filledInputsCount++;
+                    input.classList.add('filled');
+                } else {
+                    input.classList.remove('filled');
+                }
+            });
+
+            let filledSelectsCount = 0;
+            allSelects.forEach(sel => {
+                if (sel.value !== '') filledSelectsCount++;
+            });
+
+            const totalAnswered = filledInputsCount + allRadios.length + filledSelectsCount;
+            
+            // Total estimation of questions
+            const totalQuestions = document.querySelectorAll('.fill-input, textarea.fill-input').length + 
+                                  document.querySelectorAll('select.mc-select').length + 
+                                  (vocabMC.length + grammarMC.length + tensesMC.length + readingPassages[0].questions.length + readingPassages[1].questions.length + speakingMC.length + speakingArr.length + listeningTF.length + listeningMC.length);
+
+            document.getElementById('completed-count').textContent = totalAnswered;
+            document.getElementById('total-count').textContent = totalQuestions;
+
+            // Update Apple Tree Slots (1 to 5 visual indicator level)
+            const ratio = totalAnswered / (totalQuestions || 1);
+            const applesActive = Math.min(5, Math.floor(ratio * 5) + (totalAnswered > 0 ? 1 : 0));
+            
+            for (let i = 1; i <= 5; i++) {
+                const el = document.getElementById(`apple-${i}`);
+                if (i <= applesActive) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            }
+
+            // Random emote change when student makes progress
+            if (totalAnswered > 0 && totalAnswered % 3 === 0) {
+                const randEmote = farmEmotes[Math.floor(Math.random() * farmEmotes.length)];
+                const randCheer = cheers[Math.floor(Math.random() * cheers.length)];
+                document.getElementById('animal-emote').textContent = randEmote;
+                document.getElementById('farm-cheer').textContent = randCheer;
+            }
+        }
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMC('vocab-mc-container', vocabMC);
+            renderMC('grammar-mc-container', grammarMC);
+            renderWordForm();
+            renderMC('tenses-mc-container', tensesMC);
+            renderTensesFill();
+            renderCloze();
+            renderReadingComp();
+            renderMC('speaking-mc-container', speakingMC.map(s => ({ id: s.id, q: s.dialog, opts: s.opts })));
+            renderSpeakingArr();
+            renderWriting();
+            renderListening();
+
+            updateProgress();
+
+            // Event Listeners for inputs
+            document.addEventListener('input', updateProgress);
+            document.addEventListener('change', updateProgress);
+
+            // Submit Button Action
+            const submitBtn = document.getElementById('btn-submit');
+            const modal = document.getElementById('submit-modal');
+            const closeModalBtn = document.getElementById('btn-close-modal');
+
+            submitBtn.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
